@@ -203,4 +203,5 @@ ja:
   attributes:
     name: 名前
     email: メールアドレス
+    phone: 電話番号
 

@@ -21,6 +21,13 @@
       </td>
     </tr>
     <tr>
+      <th>電話番号</th>
+      <td>
+        <%= f.hidden_field :phone %>
+        <%= @inquiry.phone %>
+      </td>
+    </tr>
+    <tr>
       <th>お問い合わせ内容</th>
       <td>
         <%= f.hidden_field :message %>
@@ -37,6 +44,7 @@
     <%= form_for @inquiry, :url => inquiry_path do |f| %>
       <%= f.hidden_field :name %>
       <%= f.hidden_field :email %>
+      <%= f.hidden_field :phone %>
       <%= f.hidden_field :message %>
       <%= f.submit '戻る', name: 'back', class: 'btn btn-secondry' %>
     <% end %>

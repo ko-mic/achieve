@@ -1,7 +1,7 @@
 class InquiryController < ApplicationController
     def index
         if params[:back]
-            inquiry = params.require(:inquiry) .permit(:name, :email, :message)
+            inquiry = params.require(:inquiry) .permit(:name, :email, :phone, :message)
             @inquiry = Inquiry.new(inquiry)
             render :action => 'index'
         else
@@ -11,7 +11,7 @@ class InquiryController < ApplicationController
     end
 
     def confirm
-        inquiry = params.require(:inquiry) .permit(:name, :email, :message)
+        inquiry = params.require(:inquiry) .permit(:name, :email, :phone, :message)
         @inquiry = Inquiry.new(inquiry)
         if @inquiry.valid?
             render :action => 'confirm'
@@ -21,7 +21,7 @@ class InquiryController < ApplicationController
     end
 
     def thanks
-        inquiry = params.require(:inquiry) .permit(:name, :email, :message)
+        inquiry = params.require(:inquiry) .permit(:name, :email, :phone, :message)
         @inquiry = Inquiry.new(inquiry)
         @inquiry.save
         render :action => 'thanks'
