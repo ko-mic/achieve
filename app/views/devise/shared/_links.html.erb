@@ -3,7 +3,7 @@
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "新規会員登録", new_registration_path(resource_name) %><br />
+  <%= link_to "新規ユーザー登録", new_registration_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
@@ -11,11 +11,11 @@
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "新規会員登録の有効化URL付きメールを受信出来ない方", new_user_confirmation_path(resource_name) %><br />
+  <%= link_to "新規ユーザー登録の有効化URL付きメールを受信出来ない方", new_user_confirmation_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "会員アカウントのロック解除メールを受信出来ない方", new_unlock_path(resource_name) %><br />
+  <%= link_to "ユーザーアカウントのロック解除メールを受信出来ない方", new_unlock_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>
