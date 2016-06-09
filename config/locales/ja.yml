@@ -204,4 +204,7 @@ ja:
     name: 名前
     email: メールアドレス
     phone: 電話番号
-
+    password: パスワード
+    password_confirmation: パスワード(確認再入力)
+    current_password: 現在のパスワード
+    remember_me: ログイン情報を記憶する
