@@ -67,6 +67,8 @@
             </ul>
           <% else %>
           <li><%= link_to "お問い合わせ", inquiry_path %></li>
+          <li><%= link_to "facebook認証", user_omniauth_authorize_path(:facebook) %></li>
+          <li><%= link_to "twitter認証", user_omniauth_authorize_path(:twitter) %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>
           <% end %>
         </a></li>
