@@ -33,6 +33,15 @@
 
               <div class="social-login">
                 <h1>他サービスのアカウントを使ってログイン</h1>
+                <a href="/users/auth/twitter" class="btn btn-lg btn-social btn-twitter">
+                  <i class="fa fa-twitter"></i> Twitter登録する
+                </a>
+                
+                <a href="/users/auth/facebook" class="btn btn-lg btn-social btn-facebook">
+                  <i class="fa fa-facebook"></i> Facebookで登録する
+                </a>
+                
+                <br />
                 <%= link_to "facebook認証", user_omniauth_authorize_path(:facebook) %><br />
                 <%= link_to "twitter認証", user_omniauth_authorize_path(:twitter) %><br />
               </div>
