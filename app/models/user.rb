@@ -5,18 +5,20 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable # confirmableとomuniauthableを追加
   has_many :blogs, dependent: :destroy
   
-  # Facebook認証時のEmailフィールド設定
+  # サインアップ時Email 重複防止 facebook認証時のemailフィールド設定の実装
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     
     user = User.where(provider: auth.provider, uid: auth.uid).first
     
     unless user
-      user = User.create(name: auth.extra.raw_info.name,
+      user = User.new(name: auth.extra.raw_info.name,
                         provider: auth.provider,
                         uid: auth.uid,
                         email: auth.info.email,
                         password: Devise.friendly_token[0,20]
                         )
+      user.skip_confirmation!
+      user.save
     end
     user
   end
@@ -27,12 +29,14 @@ class User < ActiveRecord::Base
     user = User.where(provider: auth.provider, uid: auth.uid).first
     
     unless user
-      user = User.create(name: auth.info.nickname,
+      user = User.new(name: auth.info.nickname,
                         provider: auth.provider,
                         uid: auth.uid,
                         email: User.create_unique_email,
                         password: Devise.friendly_token[0,20]
                         )
+      user.skip_confirmation!
+      user.save
     end
     user
   end
