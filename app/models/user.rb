@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable # confirmableとomuniauthableを追加
-  has_many :blogs
+  has_many :blogs, dependent: :destroy
   
   # Facebook認証時のEmailフィールド設定
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
