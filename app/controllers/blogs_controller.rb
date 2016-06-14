@@ -19,8 +19,8 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   def new
     # raise
-    @user = User.find(params[:id])
-    @blog = @user.blog.build
+    @user = User.find(current_user.id)
+    @blog = @user.blogs.build
   end
 
   # GET /blogs/1/edit
@@ -31,8 +31,8 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.json
   def create
-    @user = User.find(params[:id])
-    @blog = @user.blog.build(blog_params)
+    @user = User.find(current_user.id)
+    @blog = @user.blogs.build(blog_params)
 
     respond_to do |format|
       if @blog.save
