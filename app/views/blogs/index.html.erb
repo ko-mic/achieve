@@ -8,10 +8,11 @@
             <h3 class="panel-title"><%= blog.title %></h3>
         </div>
         <div class="panel-body">
+            Blog ID:<%= blog.id %><br />
             <%= blog.content %><br />
             <em><%= blog.created_at %></em>
             <p><em>投稿者:<%= blog.user.name %></em></p>
-            <% if current_user.id == blog.user_id %>
+            <% if current_user == (blog.user) %>
                 <%= link_to '編集', edit_blog_path(blog) %>
                 <%= link_to '削除', blog_path(blog), :method => :delete, data: { confirm: '削除してよろしいですか？' } %>
             <% end %>
