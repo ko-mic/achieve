@@ -11,6 +11,10 @@
             <%= blog.content %><br />
             <em><%= blog.created_at %></em>
             <p><em>投稿者:<%= blog.user.name %></em></p>
+            <% if current_user.id == blog.user_id %>
+                <%= link_to '編集', edit_blog_path(blog) %>
+                <%= link_to '削除', blog_path(blog), :method => :delete %>
+            <% end %>
         </div>
     </div>
 <% end %>
