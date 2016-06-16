@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable # confirmableとomuniauthableを追加
   has_many :blogs, dependent: :destroy
+  mount_uploader :image, ImageUploader
   
   # サインアップ時Email 重複防止 facebook認証時のemailフィールド設定の実装
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
