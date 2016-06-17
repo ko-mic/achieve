@@ -5,19 +5,30 @@
         <div class="form-wrap">
           <h1><%= resource_name.to_s.humanize %>情報の更新</h1>
 
-            <% if current_user.provider.present? %>
-              <div class="thumbnail">
-                <% if @user.image? %>
-                  <%= image_tag @user.image.thumb.url %>
-                <% else %>
-                  <%= profile_img(@user) %>
-                <% end %>
-              </div>
-            <% end %>
-
             <div class="login-field">
               <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
               <%= devise_error_messages! %>
+
+                <div class="form-group">
+                  <div class="thumbnail">
+                    <% if @user.image? %>
+                      <%= image_tag @user.image.url %>
+                    <% else %>
+                      <%= profile_img(@user) %>
+                    <% end %>
+                  </div>
+                    <%= f.label :image %><br />
+                    <%= f.file_field :image %>
+                    <%= f.hidden_field :image_cache %>
+                </div>
+
+                <!--　既存レコード（DBに保存されている）かつ画像が存在する場合の削除ボタン -->
+                <% if @user.persisted? && @user.image? %>
+                  <label>
+                    <%= f.check_box :remove_image %>
+                    画像を削除
+                  </label>
+                <% end %>
 
                 <% if current_user.provider.blank? %>
                 <div class="form-group">
@@ -29,11 +40,6 @@
                 <div class="form-group">
                   <%= f.label :name %><br />
                   <%= f.text_field :name, class: "form-control" %>
-                </div>
-
-                <div class="form-group">
-                  <%= f.label :image %><br />
-                  <%= f.text_field :image, class: "form-control" %>
                 </div>
 
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

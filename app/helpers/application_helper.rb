@@ -6,8 +6,7 @@ module ApplicationHelper
         elsif user.provider == 'twitter'
             img_url = "http://furyu.nazo.cc/twicon/#{user.name}"
         else
-            gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
-            img_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
+            img_url = '/images/default_user_image.jpeg'
         end
         image_tag(img_url, alt: user.name)
     end

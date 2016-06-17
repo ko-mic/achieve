@@ -49,12 +49,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # 保存形式をJPGにする
-  process :convert => 'jpg'
+  # process :convert => 'jpg'
 
   # サムネイルを生成する設定
-  version :thumb do
-    process :resize_to_limit => [300, 300]
-  end
+  # version :thumb do
+  #   process :resize_to_limit => [300, 300]
+  # end
 
   # jpg,jpeg,gif,pngしか受け付けない
   def extension_white_list
