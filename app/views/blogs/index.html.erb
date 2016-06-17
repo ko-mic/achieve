@@ -11,7 +11,16 @@
             Blog ID:<%= blog.id %><br />
             <%= blog.content %><br />
             <em><%= blog.created_at %></em>
-            <p><em>投稿者:<%= blog.user.name %></em></p>
+            
+            <p>
+            <% if blog.user.image? %>
+                <%= image_tag blog.user.image.url %>
+            <% else %>
+                <%= profile_img(blog.user) %>
+            <% end %>
+            <em>投稿者:<%= blog.user.name %></em>
+            </p>
+
             <% if current_user == (blog.user) %>
                 <%= link_to '編集', edit_blog_path(blog) %>
                 <%= link_to '削除', blog_path(blog), :method => :delete, data: { confirm: '削除してよろしいですか？' } %>

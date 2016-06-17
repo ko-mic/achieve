@@ -80,7 +80,6 @@ class BlogsController < ApplicationController
     
     def correct_user
       @blog = current_user.blogs.find_by(id:params[:id])
-      flash[:alert] = "その操作は実行できません。管理者にお問い合わせください。"
       redirect_to root_url if @blog.nil?
     end
 end
