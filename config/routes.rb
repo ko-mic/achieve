@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'about/company_overview'
+
   get 'users/index'
   get 'users/show'
 
@@ -19,4 +21,6 @@ Rails.application.routes.draw do
   post 'inquiry/thanks' => 'inquiry#thanks'
 
   resources :blogs
+  
+  get 'about' => 'about#company_overview'
 end
