@@ -47,6 +47,17 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'database_rewinder'
   gem 'factory_girl_rails'
+  gem 'hirb-unicode'
+  gem 'hirb'
+  gem 'quiet_assets'
+  gem 'tapp'
+  gem 'timecop'
+  gem "annotate", github: "ctran/annotate_models"
+  gem "colorize_unpermitted_parameters"
+  gem "guard-rspec", require: false
+  gem "rack-mini-profiler"
+  gem "spring-commands-rspec"
+  gem "xray-rails"
 end
 
 gem 'devise'
