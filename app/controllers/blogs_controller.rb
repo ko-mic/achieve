@@ -35,6 +35,7 @@ class BlogsController < ApplicationController
         #raise
         format.html { redirect_to @blog, notice: 'ブログ投稿が完了しました。' }
         format.json { render :show, status: :created, location: @blog }
+        NoticeMailer.sendmail_blog(@blog).deliver
       else
         format.html { render :new }
         format.json { render json: @blog.errors, status: :unprocessable_entity }

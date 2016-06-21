@@ -59,6 +59,7 @@ group :development, :test do
   gem "rack-mini-profiler"
   # gem "spring-commands-rspec"
   gem "xray-rails"
+  gem 'letter_opener'
 end
 
 gem 'devise'

@@ -21,6 +21,8 @@ class InquiryController < ApplicationController
     def thanks
         @inquiry = Inquiry.create(inquiry_params)
         render :action => 'thanks'
+        ConfirmMailer.sendmail_inquiry(@inquiry).deliver
+
     end
 
     private

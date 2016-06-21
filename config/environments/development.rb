@@ -41,6 +41,7 @@ Rails.application.configure do
   
   # deviseの設定
   config.action_mailer.default_url_options = { host: 'code-komikomiyan.c9users.io' }
+  config.action_mailer.delivery_method = :letter_opener
   
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
 end
