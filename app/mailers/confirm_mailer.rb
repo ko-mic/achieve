@@ -7,10 +7,17 @@ class ConfirmMailer < ApplicationMailer
   #
   # 引数としてinquiryを追加します。
 
-  def sendmail_inquiry(inquiry)
+  def sendselfmail_inquiry(inquiry)
     @inquiry = inquiry
 
     mail to: inquiry.email,
+    subject: "お問い合わせを受信しました。"
+  end
+  
+  def sendmail_inquiry(inquiry)
+    @inquiry = inquiry
+    
+    mail to: "achieverockycrag@gmail.com",
     subject: "お問い合わせを受信しました。"
   end
 end

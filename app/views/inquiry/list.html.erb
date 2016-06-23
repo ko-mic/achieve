@@ -1,0 +1,4 @@
+<% Mail.all.each do |mail| %>
+    <% mail.subject %>
+    <%= simple_format(mail.body.decoded.encode("UTF-8", mail.charset)) %>
+<% end %>
