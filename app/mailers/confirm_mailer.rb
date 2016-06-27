@@ -11,13 +11,16 @@ class ConfirmMailer < ApplicationMailer
     @inquiry = inquiry
 
     mail to: inquiry.email,
-    subject: "お問い合わせを受信しました。"
+    subject: "お問い合わせを受信しました。",
+    content_transfer_encoding: '8bit'
   end
-  
+
+
   def sendmail_inquiry(inquiry)
     @inquiry = inquiry
     
     mail to: "achieverockycrag@gmail.com",
-    subject: "お問い合わせを受信しました。"
+    subject: "お問い合わせを受信しました。",
+    content_transfer_encoding: '8bit'
   end
 end

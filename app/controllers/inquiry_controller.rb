@@ -21,8 +21,8 @@ class InquiryController < ApplicationController
     def thanks
         @inquiry = Inquiry.create(inquiry_params)
         render :action => 'thanks'
-        ConfirmMailer.sendmail_inquiry(@inquiry).deliver
         ConfirmMailer.sendselfmail_inquiry(@inquiry).deliver
+        ConfirmMailer.sendmail_inquiry(@inquiry).deliver
     end
     
     def list
@@ -34,10 +34,9 @@ class InquiryController < ApplicationController
                     :user_name => 'recent:achieverockycrag@gmail.com',
                     :password => 'n9ikKL6L',
                     :enable_ssl => true
-                    
                 }
             end
-            Mail.all  # achieverockycrag@gmail.com上のメールを受信
+            @mail = Mail.find(:what => :last, :count => 3, :order => :desc) # achieverockycrag@gmail.com上のメールを直近5通受信
     end
 
     private

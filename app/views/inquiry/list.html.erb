@@ -1,4 +1,12 @@
-<% Mail.all.each do |mail| %>
-    <% mail.subject %>
-    <%= simple_format(mail.body.decoded.encode("UTF-8", mail.charset)) %>
+<% @mail.each do |mail| %>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><%= mail.date %></h3>
+        </div>
+
+        <div class="panel-body">
+            <p><%= simple_format(mail.text_part.decoded.encode("UTF-8", mail.charset)) %></p>
+            <br />
+        </div>
+    </div>
 <% end %>
