@@ -32,6 +32,24 @@ gem 'twitter-bootstrap-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise'
+
+gem 'therubyracer', platforms: :ruby
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'omniauth'
+gem 'omniauth-twitter' 
+gem 'omniauth-facebook'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'rspec-rails'
+gem 'capybara'
+gem 'rambulance'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -54,28 +72,11 @@ group :development, :test do
   gem 'timecop'
   # gem "annotate", github: "ctran/annotate_models"
   gem "colorize_unpermitted_parameters"
-  gem "faker"
+  # gem "faker"
   # gem "guard-rspec", require: false
   gem "rack-mini-profiler"
   # gem "spring-commands-rspec"
   gem "xray-rails"
   gem 'letter_opener'
+  gem 'dotenv'
 end
-
-gem 'devise'
-
-gem 'therubyracer', platforms: :ruby
-gem 'bootstrap-sass', '~> 3.2.0'
-gem 'autoprefixer-rails'
-gem 'omniauth'
-gem 'omniauth-twitter' 
-gem 'omniauth-facebook'
-gem 'bootstrap-social-rails'
-gem 'font-awesome-rails'
-gem 'carrierwave'
-gem 'faker'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
-gem 'rspec-rails'
-gem 'capybara'
-gem 'rambulance'

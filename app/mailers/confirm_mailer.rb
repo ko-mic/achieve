@@ -19,7 +19,7 @@ class ConfirmMailer < ApplicationMailer
   def sendmail_inquiry(inquiry)
     @inquiry = inquiry
     
-    mail to: "achieverockycrag@gmail.com",
+    mail to: ENV["GMAIL_ADRESS"],
     subject: "お問い合わせを受信しました。",
     content_transfer_encoding: '8bit'
   end
