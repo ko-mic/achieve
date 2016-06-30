@@ -31,12 +31,12 @@ class InquiryController < ApplicationController
                 retriever_method :pop3, {
                     :address => "pop.gmail.com",
                     :port => 995,
-                    :user_name => ENV["GMAIL_ADRESS"],
+                    :user_name => ENV["GMAIL_SENDADRESS"],
                     :password => ENV["GMAIL_PASSWORD"],
                     :enable_ssl => true
                 }
             end
-            @mail = Mail.find(:what => :last, :count => 3, :order => :desc) # achieverockycrag@gmail.com上のメールを直近5通受信
+            @mail = Mail.find(:what => :last, :count => 3, :order => :desc)
     end
 
     private
