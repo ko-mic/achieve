@@ -16,3 +16,4 @@ production:
   database: achieve_production
   username: achieve
   password: <%= ENV['ACHIEVE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
